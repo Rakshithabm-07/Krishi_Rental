@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – Krishi Rental</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dashboard-body">
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-brand">🌾 Krishi</div>
+      <div class="sidebar-user" id="sidebarUser"></div>
+      <nav class="sidebar-nav" id="sidebarNav"></nav>
+      <button class="sidebar-logout" onclick="logout()">🚪 Logout</button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <div class="topbar">
+        <h1 class="page-title" id="pageTitle">Dashboard</h1>
+        <div
+          id="alertBell"
+          class="alert-bell"
+          onclick="checkAlerts()"
+          style="display: none"
+        >
+          🔔
+        </div>
+      </div>
+
+      <!-- DYNAMIC PANEL AREA -->
+      <div id="panelArea"></div>
+    </div>
+
+    <!-- MODAL: Rent Equipment -->
+    <div
+      class="modal-backdrop"
+      id="rentModal"
+      onclick="closeModal('rentModal')"
+    >
+      <div class="modal wide-modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h2>Rent Equipment</h2>
+          <button class="modal-close" onclick="closeModal('rentModal')">
+            ✕
+          </button>
+        </div>
+        <div id="rentFormContent"></div>
+      </div>
+    </div>
+
+    <!-- MODAL: QC Validate -->
+    <div class="modal-backdrop" id="qcModal" onclick="closeModal('qcModal')">
+      <div class="modal wide-modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h2>Validate Rental Return</h2>
+          <button class="modal-close" onclick="closeModal('qcModal')">✕</button>
+        </div>
+        <div id="qcFormContent"></div>
+      </div>
+    </div>
+
+    <!-- MODAL: Update Equipment -->
+    <div
+      class="modal-backdrop"
+      id="updateModal"
+      onclick="closeModal('updateModal')"
+    >
+      <div class="modal wide-modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h2>Update Equipment</h2>
+          <button class="modal-close" onclick="closeModal('updateModal')">
+            ✕
+          </button>
+        </div>
+        <div id="updateFormContent"></div>
+      </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+  </body>
+</html>

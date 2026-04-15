@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krishi Rental System</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="navbar">
+      <div class="nav-brand">🌾 Krishi Rental</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#signup">Signup</a>
+        <button class="btn-login" onclick="openModal('loginModal')">
+          Login
+        </button>
+        <select id="langSelect" onchange="changeLanguage(this.value)">
+          <option value="en">🌐 English</option>
+          <option value="hi">हिंदी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+        </select>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Krishi Rental System</h1>
+        <p class="hero-sub">Rent Agricultural Equipment Easily & Affordably</p>
+        <div class="hero-btns">
+          <button class="btn-hero" onclick="scrollTo('signup')">
+            Register as Farmer
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="section-title">Why Choose Us?</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          🚜
+          <h3>Easy Rental</h3>
+          <p>Browse and rent equipment in minutes</p>
+        </div>
+        <div class="feature-card">
+          👥
+          <h3>Multi-Role System</h3>
+          <p>Admin, Producer, Farmer & QC roles</p>
+        </div>
+        <div class="feature-card">
+          🔒
+          <h3>Secure Payments</h3>
+          <p>UPI & Card payment support</p>
+        </div>
+        <div class="feature-card">
+          🌐
+          <h3>Multi-Language</h3>
+          <p>Available in English, Hindi & Kannada</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPMENT PREVIEW -->
+    <section class="preview">
+      <div class="section-title">Our Equipment</div>
+      <div class="preview-grid">
+        <div class="preview-card">
+          <div class="eq-icon">🚜</div>
+          <p>Tractor</p>
+        </div>
+        <div class="preview-card">
+          <div class="eq-icon">🌾</div>
+          <p>Harvester</p>
+        </div>
+        <div class="preview-card">
+          <div class="eq-icon">💧</div>
+          <p>Sprayer</p>
+        </div>
+        <div class="preview-card">
+          <div class="eq-icon">⚙️</div>
+          <p>Thresher</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-text">
+        <h2>About Krishi Rental System</h2>
+        <p>
+          Krishi Rental System helps farmers rent agricultural equipment easily
+          without buying costly machinery. We connect farmers with equipment
+          producers, ensuring quality-checked returns and fair pricing.
+        </p>
+      </div>
+    </section>
+
+    <!-- SIGNUP SECTION -->
+    <section class="signup-section" id="signup">
+      <div class="signup-container signup-single">
+        <!-- FARMER SIGNUP ONLY -->
+        <div class="signup-card">
+          <h2>👨‍🌾 Farmer Registration</h2>
+          <form id="farmerForm" enctype="multipart/form-data">
+            <input type="text" id="f_name" placeholder="Full Name" required />
+            <input type="email" id="f_email" placeholder="Email" required />
+            <input
+              type="password"
+              id="f_password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="password"
+              id="f_confirm"
+              placeholder="Confirm Password"
+              required
+            />
+            <input
+              type="tel"
+              id="f_phone"
+              placeholder="Phone Number (10 digits)"
+              maxlength="10"
+              required
+            />
+            <input
+              type="text"
+              id="f_aadhar"
+              placeholder="Aadhar Number"
+              required
+            />
+            <label>Upload Aadhar Image</label>
+            <input type="file" id="f_aadhar_img" accept="image/*" />
+            <button type="button" onclick="registerFarmer()">Register</button>
+          </form>
+          <div id="farmer-msg" class="form-msg"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>🌾 Krishi Rental System</div>
+      <div>📞 +91-9999999999 | ✉️ support@krishi.com</div>
+      <div>© 2026 Krishi Rental System. Developed for Indian Farmers.</div>
+    </footer>
+
+    <!-- LOGIN MODAL -->
+    <div
+      class="modal-backdrop"
+      id="loginModal"
+      onclick="closeModal('loginModal')"
+    >
+      <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h2>Login</h2>
+          <button class="modal-close" onclick="closeModal('loginModal')">
+            ✕
+          </button>
+        </div>
+        <select id="loginRole">
+          <option value="farmer">👨‍🌾 Farmer</option>
+          <option value="admin">🛠️ Admin</option>
+          <option value="producer">🏭 Producer</option>
+          <option value="qc">✅ Quality Checker</option>
+        </select>
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button onclick="doLogin()">Login</button>
+        <div id="login-msg" class="form-msg"></div>
+      </div>
+    </div>
+
+    <script src="/static/js/home.js"></script>
+  </body>
+</html>
