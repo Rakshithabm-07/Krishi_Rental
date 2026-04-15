@@ -16,7 +16,34 @@
       <div class="sidebar-brand">🌾 Krishi</div>
       <div class="sidebar-user" id="sidebarUser"></div>
       <nav class="sidebar-nav" id="sidebarNav"></nav>
-      <button class="sidebar-logout" onclick="logout()">🚪 Logout</button>
+      <div style="margin-top: auto; padding-top: 1rem">
+        <select
+          id="dashLangSelect"
+          onchange="changeLanguage(this.value)"
+          style="
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #c8e6c9;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            font-family: inherit;
+            margin-bottom: 0.6rem;
+            cursor: pointer;
+          "
+        >
+          <option value="en">🌐 English</option>
+          <option value="hi">🇮🇳 हिंदी</option>
+          <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+        </select>
+        <button
+          class="sidebar-logout"
+          onclick="logout()"
+          data-i18n="btn_logout"
+        >
+          🚪 Logout
+        </button>
+      </div>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -28,12 +55,11 @@
           class="alert-bell"
           onclick="checkAlerts()"
           style="display: none"
+          title="Alerts"
         >
           🔔
         </div>
       </div>
-
-      <!-- DYNAMIC PANEL AREA -->
       <div id="panelArea"></div>
     </div>
 
@@ -45,7 +71,7 @@
     >
       <div class="modal wide-modal" onclick="event.stopPropagation()">
         <div class="modal-header">
-          <h2>Rent Equipment</h2>
+          <h2 data-i18n="farm_rent_modal">Rent Equipment</h2>
           <button class="modal-close" onclick="closeModal('rentModal')">
             ✕
           </button>
@@ -73,7 +99,7 @@
     >
       <div class="modal wide-modal" onclick="event.stopPropagation()">
         <div class="modal-header">
-          <h2>Update Equipment</h2>
+          <h2 data-i18n="prod_add_eq_title">Update Equipment</h2>
           <button class="modal-close" onclick="closeModal('updateModal')">
             ✕
           </button>
@@ -82,6 +108,7 @@
       </div>
     </div>
 
+    <script src="/static/js/i18n.js"></script>
     <script src="/static/js/dashboard.js"></script>
   </body>
 </html>
