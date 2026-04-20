@@ -162,11 +162,37 @@
               type="text"
               id="f_aadhar"
               data-i18n="f_aadhar"
-              placeholder="Aadhar Number"
+              placeholder="Aadhaar Number (12 digits)"
+              oninput="onAadhaarInput()"
+              maxlength="14"
               required
             />
-            <label data-i18n="f_aadhar_img">Upload Aadhar Image</label>
-            <input type="file" id="f_aadhar_img" accept="image/*" />
+            <div id="aadhar-hint" class="field-hint"></div>
+
+            <label data-i18n="f_aadhar_img"
+              >Upload Aadhaar Card Image (JPG / PNG)</label
+            >
+            <input
+              type="file"
+              id="f_aadhar_img"
+              accept=".jpg,.jpeg,.png"
+              onchange="onAadhaarImageSelect()"
+              required
+            />
+            <div id="img-hint" class="field-hint"></div>
+            <img
+              id="img-preview"
+              src=""
+              alt="Aadhaar Preview"
+              style="
+                display: none;
+                width: 100%;
+                max-width: 340px;
+                border-radius: 8px;
+                margin-top: 0.5rem;
+                border: 2px solid var(--green);
+              "
+            />
             <button
               type="button"
               onclick="registerFarmer()"

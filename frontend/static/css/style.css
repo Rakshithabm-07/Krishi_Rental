@@ -289,3 +289,12 @@ tbody td { padding: .75rem 1rem; }
 .info-row { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; }
 .info-row span { font-size: .9rem; color: var(--grey); }
 .info-row strong { color: var(--dark); }
+
+/* ── AADHAAR VALIDATION HINTS ── */
+.field-hint {
+  font-size: .82rem; padding: .3rem .5rem; border-radius: 5px;
+  margin-top: -.6rem; margin-bottom: .6rem; min-height: 1.2rem;
+  transition: all .2s;
+}
+.field-hint.success { color: #155724; background: #d4edda; }
+.field-hint.error   { color: #721c24; background: #f8d7da; }
